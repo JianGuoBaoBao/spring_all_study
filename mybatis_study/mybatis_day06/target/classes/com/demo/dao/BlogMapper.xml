@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.BlogMapper">
+
+    <!--在当前Mapper.xml中使用二级缓存-->
+    <!--
+           LRU: 最近最少使用：移除最长时间不被使用的对象。（默认）
+           FIFO: 先进先出：按对象进入缓存的顺序来移除它们。
+           SOFT: 软引用：基于垃圾回收器状态和软引用规则移除对象。
+           WEAK: 弱引用：更积极地基于垃圾收集器状态和弱引用规则移除对象。
+           开启二级缓存:
+           创建了一个FIFO缓存，每隔60秒刷新，最多可以存储结果对象或列表的512个引用，而且返回的对象被认为是只读的，
+           因此对它们进行修改可能会在不同线程中的调用者产生冲突。
+       -->
+    <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true"
+    />
+
+    <!--where会自动去掉and或者or,int可以省略 别名: _int-->
+    <select id="queryBlogById" parameterType="String" resultType="Blog" useCache="true">
+        select * from mybatis_demo.blog where id = #{id}
+    </select>
+
+    <update id="updateBlogById" parameterType="Blog">
+        update mybatis_demo.blog set title=#{title}, author=#{author} where id = #{id};
+    </update>
+
+</mapper>

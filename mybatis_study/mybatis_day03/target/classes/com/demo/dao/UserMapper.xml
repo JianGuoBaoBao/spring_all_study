@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.UserDao"><!--绑定一个对应的Dao/Mapper接口-->
+
+    <select id="getUserList" resultMap="UserMap">
+        select * from mybatis_demo.user
+    </select>
+
+
+    <!--对象中的属性可以直接取出来-->
+    <insert id="addUser" parameterType="user">
+        insert into mybatis_demo.user (id, userName, age, gender,parent) value (#{id}, #{userName}, #{age}, 0, 1);
+    </insert>
+
+
+    <update id="updateUser" parameterType="user">
+        update mybatis_demo.user set userName=#{userName}, gender=#{gender}, parent=#{parent} where id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis_demo.user where id = #{id}
+    </delete>
+
+
+   <!-- private Integer id;
+    private String username;
+    private Integer age;
+    private String gender;
+    private Integer parentname；-->
+    <!--结果级隐射-->
+    <resultMap id="UserMap" type="user">
+        <!--column是数据库中的字段， property实体类中的属性-->
+        <result  column="id" property="id"></result>
+        <result  column="userName" property="username"></result>
+        <result  column="age" property="age"></result>
+        <result  column="gender" property="gender"></result>
+        <result  column="parent" property="parentname"></result>
+    </resultMap>
+
+    <select id="getUserById" parameterType="int" resultMap="UserMap">
+<!--    <select id="getUserById" parameterType="int" resultType="user">-->
+        select * from mybatis_demo.user where id = #{id}
+    </select>
+
+    <!--分页-->
+    <select id="getUserByLimit" parameterType="map" resultMap="UserMap">
+        select * from mybatis_demo.user limit #{startIndex},#{pageSize}
+    </select>
+
+    <!--getUserByRowBounds分页-->
+    <select id="getUserByRowBounds" resultMap="UserMap">
+        select * from mybatis_demo.user
+    </select>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--p:property 命名空间-->
+    <bean id="user"  class="com.entity.User" p:name="章晓丹" />
+
+    <!--c：construct-args命名空间-->
+    <bean id="user2"  class="com.entity.User" c:name="章猪丹" />
+
+    <!--单例模式 spring默认机制-->
+    <bean id="user3"  class="com.entity.User" c:name="章猪丹2" scope="singleton" />
+
+    <!--原型模式：每次从容器中get的时候，都会产生一个新的对象-->
+    <bean id="user4"  class="com.entity.User" c:name="章猪丹3" scope="prototype" />
+</beans>
+
+

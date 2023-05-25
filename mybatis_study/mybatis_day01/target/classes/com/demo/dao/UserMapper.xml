@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.UserDao"><!--绑定一个对应的Dao/Mapper接口-->
+
+    <select id="getUserList" resultType="com.demo.entity.User">
+        select * from mybatis_demo.user
+    </select>
+
+    <select id="getUserById" parameterType="int" resultType="com.demo.entity.User">
+        select * from mybatis_demo.user where id = #{id}
+    </select>
+
+    <select id="getUserByIdWithMap" parameterType="map" resultType="com.demo.entity.User">
+        select * from mybatis_demo.user where id = #{id} and userName= #{userName}
+    </select>
+
+    <!--对象中的属性可以直接取出来-->
+    <insert id="addUser" parameterType="com.demo.entity.User">
+        insert into mybatis_demo.user (id, userName, age, gender,parent) value (#{id}, #{userName}, #{age}, 0, 1);
+    </insert>
+
+    <!--对象中的属性传递map中的key,数据库中表字段过多，我们应当考虑map-->
+    <insert id="addUserWithMap" parameterType="map">
+        insert into mybatis_demo.user (id, userName, age, gender,parent) value (#{userId}, #{userName}, #{agent}, 0, 1);
+    </insert>
+
+
+    <update id="updateUser" parameterType="com.demo.entity.User">
+        update mybatis_demo.user set userName=#{userName}, gender=#{gender}, parent=#{parent} where id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis_demo.user where id = #{id}
+    </delete>
+
+    <!--模糊搜索-->
+        <select id="getUserLike" parameterType="string" resultType="com.demo.entity.User">
+            select * from mybatis_demo.user where userName like #{value}
+        </select>
+        <!--使用统配符-->
+        <!--    <select id="getUserLike" parameterType="string" resultType="com.demo.entity.User">-->
+        <!--        select * from mybatis_demo.user where userName like "%"#{value}"%"-->
+        <!--    </select>-->
+    <!--模糊搜索-->
+
+</mapper>
