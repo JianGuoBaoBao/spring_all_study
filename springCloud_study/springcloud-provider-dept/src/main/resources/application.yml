@@ -3,9 +3,9 @@ server:
 
 #mybatis 配置
 mybatis:
-  type-aliases-packages: com.kuang.springcloud.pojo
-  config-location: classpath:mybatis/mybatis-config.xml
-  mapper-location: classpath:mybatis/mapper/*.xml
+  typeAliasesPackage: com.kuang.springcloud.pojo
+  configLocation: classpath:mybatis/mybatis-config.xml
+  mapperLocations: classpath:mybatis/mapper/*.xml
 
 #spring配置
 spring:
