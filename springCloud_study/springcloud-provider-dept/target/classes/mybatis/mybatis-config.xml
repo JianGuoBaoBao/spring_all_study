@@ -13,4 +13,6 @@
     <typeAliases>
         <typeAlias type="com.kuang.springcloud.pojo.Dept" alias="Dept"/>
     </typeAliases>
+
+
 </configuration>

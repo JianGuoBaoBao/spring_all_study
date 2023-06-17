@@ -3,16 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kuang.springcloud.dao.DeptDao">
-    <insert id="addDept" parameterType="Dept">
+    <insert id="addDept" parameterType="com.kuang.springcloud.pojo.Dept">
         insert into dept (dname, db_source) values
         (#{dname}, DATABASE());
     </insert>
 
-    <select id="queryById" resultType="Dept" parameterType="Long">
+    <select id="queryById" resultType="com.kuang.springcloud.pojo.Dept" parameterType="Long">
         select * from dept where deptId = #{deptId};
     </select>
 
-    <select id="queryAll" resultType="Dept">
+    <select id="queryAll" resultType="com.kuang.springcloud.pojo.Dept">
         select * from dept
     </select>
 </mapper>

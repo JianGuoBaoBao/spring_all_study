@@ -13,7 +13,17 @@
 
 
     <dependencies>
-        <!--我们需要拿到实体类， 所以要配置api module-->
+        <!--   Eureka   -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+        <!-- 完善监控信息       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency><!--我们需要拿到实体类， 所以要配置api module-->
         <dependency>
             <groupId>com.kuang</groupId>
             <artifactId>springcloud-api</artifactId>
@@ -31,7 +41,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.2.16</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -63,7 +72,5 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-
-
     </dependencies>
 </project>
