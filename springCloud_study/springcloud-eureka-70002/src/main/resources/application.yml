@@ -4,7 +4,7 @@ server:
 #eureka配置
 eureka:
   instance:
-    hostname: eureka7001.com  #Eureka服务端的实例名称
+    hostname: eureka7002.com  #Eureka服务端的实例名称
 
 
   #    public static final String PREFIX = "eureka.client";
@@ -14,9 +14,6 @@ eureka:
   client:
     register-with-eureka: false #表示是否向eureka注册中心注册自己
     fetch-registry: false #fetch-registry如果为false, 则表示自己为注册中心
-
     service-url:  #监控页面
-      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  单机
-
-      # 集群 （关联）
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/, http://eureka7003.com:7003/eureka/

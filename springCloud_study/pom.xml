@@ -12,6 +12,8 @@
         <module>springcloud-provider-dept</module>
         <module>springcloud-consumer-dept-80</module>
         <module>springcloud-eureka-70001</module>
+        <module>springcloud-eureka-70002</module>
+        <module>springcloud-eureka-70003</module>
     </modules>
 
     <!--打包方式 pom-->
