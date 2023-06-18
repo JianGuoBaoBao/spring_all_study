@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+
 @Repository
+@Mapper
 public interface DeptDao {
     public boolean addDept(Dept dept);
 
