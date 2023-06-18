@@ -10,6 +10,12 @@ public class ConfigBean { // @Configuration -- spring applicationContext.xml
 
 
     // 配置负载均衡实现RestTemplate
+    // IRule
+    // RoundRobinRule 轮询
+    // RandomRule 随机
+    // AvailabilityFilteringRule: 会先过滤掉，跳闸，访问故障的服务； 对剩下的进行轮询
+    // RetryRule : 会先按照轮询获取服务， 如果服务获取失败，则会在指定的时间内
+
     @Bean
     @LoadBalanced  // Ribbon
     public RestTemplate getRestTemplate(){

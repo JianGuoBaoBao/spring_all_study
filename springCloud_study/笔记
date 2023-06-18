@@ -4,7 +4,11 @@
 4、配置类
 
 
-eureka :
-EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
+mybatis 如果映射不到，检查下配置文件
+  typeAliasesPackage: com.kuang.springcloud.pojo
+  configLocation: classpath:mybatis/mybatis-config.xml
+  mapperLocations: classpath:mybatis/mapper/*.xml
 
-自我保护机制
+  mapperxml里的映射空间namespace
+
+
