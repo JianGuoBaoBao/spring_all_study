@@ -14,6 +14,18 @@
 
 <!--  实体类 + web  -->
     <dependencies>
+        <!--  Ribbon  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
+        <!--   Eureka   -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>com.kuang</groupId>
             <artifactId>springcloud-api</artifactId>
