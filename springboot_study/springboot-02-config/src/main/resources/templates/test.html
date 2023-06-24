@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            width: 100px;
+            height: 100px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 所有的html元素都可以被thymeleaf接管-->
+    <div class="show" th:text="${msg}"></div>
+    <div class="show" th:untext="${msg}"></div>
+
+<!--    <hr>-->
+
+<!--    <h3 th:each="user:${users}" th:text="${user}">-->
+<!--        [[ ${user} ]]-->
+<!--    </h3>-->
+</body>
+</html>
