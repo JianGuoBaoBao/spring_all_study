@@ -16,7 +16,9 @@
         <module>springcloud-eureka-70001</module>
         <module>springcloud-eureka-70002</module>
         <module>springcloud-eureka-70003</module>
-        <module>springcloud-consumer-dept-feign</module>
+<!--        <module>springcloud-consumer-dept-feign</module>-->
+        <module>springcloud-consumer-hystrix-dashboard</module>
+        <module>springcloud-zuul-9527</module>
     </modules>
 
     <!--打包方式 pom-->

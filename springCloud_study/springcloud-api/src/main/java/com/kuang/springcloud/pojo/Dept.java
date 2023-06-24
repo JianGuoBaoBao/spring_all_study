@@ -21,6 +21,7 @@ public class Dept implements Serializable { // 实体类， 类表关系映射
         this.dname = dname;
     }
 
+
     /*
         链式写法：
         Dept dept = new Dept();

@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Component
-@FeignClient(value = "SPRINGCLOUD-PROVIER-DEPT")
+@FeignClient(value = "SPRINGCLOUD-PROVIER-DEPT", fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
 
     @GetMapping("/dept/get/{id}")

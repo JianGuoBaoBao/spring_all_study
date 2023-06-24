@@ -28,20 +28,20 @@ public class DeptConsumerController {
      private static final String REST_URL_PREFIX = "http://SPRINGCLOUD-PROVIER-DEPT";
 
 
-//    @RequestMapping("/consumer/dept/add")
-//    public boolean add(Dept dept){
-//        return restTemplate.postForObject(REST_URL_PREFIX + "/dept/add", dept, Boolean.class);
-//    }
-//
-//    @RequestMapping("/consumer/dept/get/{id}")
-//    public Dept get(@PathVariable("id") Long id){
-//        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/get/"+id, Dept.class);
-//    }
-//
-//    @RequestMapping("/consumer/dept/list")
-//    public List queryAll(){
-//        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
-//    }
+    @RequestMapping("/consumer/dept/add")
+    public boolean add(Dept dept){
+        return restTemplate.postForObject(REST_URL_PREFIX + "/dept/add", dept, Boolean.class);
+    }
+
+    @RequestMapping("/consumer/dept/get/{id}")
+    public Dept get(@PathVariable("id") Long id){
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/get/"+id, Dept.class);
+    }
+
+    @RequestMapping("/consumer/dept/list")
+    public List queryAll(){
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
+    }
 
 
 
@@ -52,21 +52,21 @@ public class DeptConsumerController {
     // 它（类似于以前Dao接口上标志Mapper注解，现在是一个微服务接口上面标注一个Feign注解即可完成对服务提供方的接口绑定，简化了使用Spring Cloud Ribbon时
     // 自动封装服务调用客户端的开发量
 
-    @Autowired
-    private DeptClientService service = null;
-
-    @RequestMapping(name = "/consumer/dept/add" , produces={"application/json;charset=UTF-8"})
-    public boolean add1(Dept dept){
-        return service.addDept(dept);
-    }
-
-    @RequestMapping(name = "/consumer/dept/get/{id}" ,produces={"application/json;charset=UTF-8"})
-    public Dept get1(@PathVariable("id") Long id){
-        return service.queryById(id);
-    }
-
-    @RequestMapping(name ="/consumer/dept/list" , produces={"application/json;charset=UTF-8"})
-    public List queryAll1(){
-        return service.queryAll();
-    }
+//    @Autowired
+//    private DeptClientService service = null;
+//
+//    @RequestMapping(name = "/consumer/dept/add" , produces={"application/json;charset=UTF-8"})
+//    public boolean add1(Dept dept){
+//        return service.addDept(dept);
+//    }
+//
+//    @RequestMapping(name = "/consumer/dept/get/{id}" ,produces={"application/json;charset=UTF-8"})
+//    public Dept get1(@PathVariable("id") Long id){
+//        return service.queryById(id);
+//    }
+//
+//    @RequestMapping(name ="/consumer/dept/list" , produces={"application/json;charset=UTF-8"})
+//    public List queryAll1(){
+//        return service.queryAll();
+//    }
 }
