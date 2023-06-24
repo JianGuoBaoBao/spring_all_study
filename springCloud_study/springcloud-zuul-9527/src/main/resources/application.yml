@@ -19,3 +19,14 @@ info:
   app.name: kuang-springcloud
   company.name: blog.kuangstudy.com
 
+
+#http://www.kuangstudy.com:9527/springcloud-provider-dept/dept/get/1
+#http://www.kuangstudy.com:9527/mydept/dept/get/1
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept  #这个不是随便配的，和application-name 对应
+    mydept.path: /mydept/** #会替换掉原来路由的路径 springcloud-provider-dept，但原来的springcloud-provider-dept还是可以直接访问
+
+#  ignored-services: springcloud-provider-dept #就不能使用这个路径访问了。 ignored: 忽略
+  ignored-services: "*" #隐藏全部，除mydept.path配置的path之外全部路由都无法访问
+  prefix: /kuang #统一访问前缀
